@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Profil Mahasiswa</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <h2>Selamat Datang</h2>
+
+        <p>
+            Halo, saya Nur Annisa Aulia. Saya sedang mempelajari
+            Pemrograman Web Dasar.
+        </p>
+
+        <img src="image/Nur Annisa Aulia.jpeg"
+             alt="Foto profil Nur Annisa Aulia"
+             width="175">
+
+    </header>
+
+
+    <main>
+
+        <section id="beranda">
+
+            <h2>Beranda</h2>
+
+            <p>
+                Saya adalah seorang mahasiswa yang sedang belajar
+                pemrograman web.
+            </p>
+
+        </section>
+
+
+        <section id="tentang">
+
+            <h2>Tentang Saya</h2>
+
+            <article>
+
+                <h3>Profil Singkat</h3>
+
+                <p>
+                    Perkenalkan, nama saya Nur Annisa Aulia. Saya adalah seorang mahasiswa
+                    Program Studi Sistem Informasi yang sedang mempelajari berbagai hal
+                    mengenai teknologi dan pemrograman. Saya tertarik untuk mempelajari
+                    bagaimana sebuah website dibuat dan bagaimana kode dapat digunakan
+                    untuk menghasilkan sebuah halaman web yang menarik dan bermanfaat.
+                </p>
+
+                <p>
+                    Saat ini saya sedang belajar Pemrograman Web Dasar, khususnya HTML.
+                    Dalam proses belajar ini, saya ingin memahami cara membuat struktur
+                    halaman web yang baik, menggunakan elemen HTML dengan benar, serta
+                    mengembangkan kemampuan saya dalam membuat website sederhana. Saya
+                    menyadari bahwa masih banyak hal yang perlu saya pelajari, sehingga
+                    saya ingin terus berlatih dan mencoba membuat berbagai proyek kecil
+                    untuk meningkatkan kemampuan saya.
+                </p>
+
+            </article>
+
+
+            <article>
+
+                <h3>Target Belajar</h3>
+
+                <ol>
+                    <li>Menguasai HTML dan CSS.</li>
+                    <li>Membuat website sederhana.</li>
+                    <li>Memahami dasar-dasar pemrograman web.</li>
+                </ol>
+
+            </article>
+
+        </section>
+
+
+        <section id="kontak">
+
+            <h2>Kontak</h2>
+
+            <p>
+                Kunjungi
+                <a href="https://github.com/2622500035-cpu" target="_blank">
+                    profil GitHub saya
+                </a>
+            </p>
+
+
+            <h3>Formulir Kontak</h3>
+
+            <form>
+
+                <label for="nama">Nama Lengkap</label>
+                <input type="text"
+                       id="nama"
+                       name="nama"
+                       value="Nur Annisa Aulia">
+
+                <br><br>
+
+
+                <label for="email">Email</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       value="2622500035@mahasiswa.atmaluhur.ac.id">
+
+                <br><br>
+
+
+                <label for="semester">Semester</label>
+                <input type="number"
+                       id="semester"
+                       name="semester"
+                       value="1">
+
+                <br><br>
+
+
+                <label for="tanggal">Tanggal Kunjungan</label>
+                <input type="date"
+                       id="tanggal"
+                       name="tanggal"
+                       value="2026-09-30">
+
+                <br><br>
+
+
+                <label>Jenis Pesan</label>
+
+                <input type="radio"
+                       id="pertanyaan"
+                       name="jenis_pesan"
+                       value="Pertanyaan"
+                       checked>
+
+                <label for="pertanyaan">Pertanyaan</label>
+
+                <input type="radio"
+                       id="saran"
+                       name="jenis_pesan"
+                       value="Saran">
+
+                <label for="saran">Saran</label>
+
+                <br><br>
+
+
+                <label>Topik yang Diminati</label>
+
+                <input type="checkbox"
+                       id="html"
+                       name="topik"
+                       value="HTML"
+                       checked>
+
+                <label for="html">HTML</label>
+
+                <input type="checkbox"
+                       id="css"
+                       name="topik"
+                       value="CSS">
+
+                <label for="css">CSS</label>
+
+                <br><br>
+
+
+                <label for="prodi">Program Studi</label>
+
+                <select id="prodi" name="prodi">
+
+                    <option value="Sistem Informasi" selected>
+                        Sistem Informasi
+                    </option>
+
+                    <option value="Teknik Informatika">
+                        Teknik Informatika
+                    </option>
+
+                </select>
+
+                <br><br>
+
+
+                <label for="pesan">Pesan</label>
+
+                <br>
+
+                <textarea id="pesan"
+                          name="pesan"
+                          rows="4"
+                          cols="40">Saya ingin belajar HTML lebih baik dan memahami cara membuat website sederhana.</textarea>
+
+                <br><br>
+
+
+                <button type="submit">Kirim</button>
+
+                <button type="reset">Batal</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 Nur Annisa Aulia [2622500035]</p>
+
+    </footer>
+
+</body>
+
+</html>
