@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+ content="width=device-width,
+ initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+
+    <link rel="stylesheet"
+ href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <h1>Profil Mahasiswa</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- BERANDA -->
+        <section id="beranda" class="home card">
+
+            <h2>Selamat Datang</h2>
+
+            <p>
+                Halo, saya Nur Annisa Aulia. Saya sedang mempelajari
+                Pemrograman Web Dasar.
+            </p>
+
+            <img src="img/jpg/image/image/Nur Annisa Aulia.jpeg"
+                 alt="Foto profil Nur Annisa Aulia"
+                 width="175">
+
+            <p>
+                Saya adalah seorang mahasiswa yang sedang belajar
+                pemrograman web.
+            </p>
+
+        </section>
+
+
+        <!-- TENTANG -->
+        <section id="tentang" class="about card">
+
+            <h2>Tentang Saya</h2>
+
+            <article>
+
+                <h3>Profil Singkat</h3>
+
+                <p>
+                    Perkenalkan, nama saya Nur Annisa Aulia. Saya adalah seorang mahasiswa
+                    Program Studi Sistem Informasi yang sedang mempelajari berbagai hal
+                    mengenai teknologi dan pemrograman. Saya tertarik untuk mempelajari
+                    bagaimana sebuah website dibuat dan bagaimana kode dapat digunakan
+                    untuk menghasilkan sebuah halaman web yang menarik dan bermanfaat.
+                </p>
+
+                <p>
+                    Saat ini saya sedang belajar Pemrograman Web Dasar, khususnya HTML.
+                    Dalam proses belajar ini, saya ingin memahami cara membuat struktur
+                    halaman web yang baik, menggunakan elemen HTML dengan benar, serta
+                    mengembangkan kemampuan saya dalam membuat website sederhana.
+                </p>
+
+            </article>
+
+            <article>
+
+                <h3>Target Belajar</h3>
+
+                <ol>
+                    <li>Menguasai HTML dan CSS.</li>
+                    <li>Membuat website sederhana.</li>
+                    <li>Memahami dasar-dasar pemrograman web.</li>
+                </ol>
+
+            </article>
+
+        </section>
+
+
+        <!-- KONTAK -->
+        <section id="kontak" class="contact card">
+
+            <h2>Kontak</h2>
+
+            <p>
+                Kunjungi
+                <a href="https://github.com/2622500035-cpu" target="_blank">
+                    profil GitHub saya
+                </a>
+            </p>
+
+            <h3>Formulir Kontak</h3>
+
+            <form>
+
+                <label for="nama">Nama Lengkap</label>
+                <input type="text"
+                       id="nama"
+                       name="nama"
+                       value="Nur Annisa Aulia">
+
+                <label for="email">Email</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       value="2622500035@mahasiswa.atmaluhur.ac.id">
+
+                <label for="semester">Semester</label>
+                <input type="number"
+                       id="semester"
+                       name="semester"
+                       value="1">
+
+                <label for="tanggal">Tanggal Kunjungan</label>
+                <input type="date"
+                       id="tanggal"
+                       name="tanggal"
+                       value="2026-09-30">
+
+                <label>Jenis Pesan</label>
+
+                <div class="option-group">
+                    <input type="radio"
+                           id="pertanyaan"
+                           name="jenis_pesan"
+                           value="Pertanyaan"
+                           checked>
+                    <label for="pertanyaan">Pertanyaan</label>
+
+                    <input type="radio"
+                           id="saran"
+                           name="jenis_pesan"
+                           value="Saran">
+                    <label for="saran">Saran</label>
+                </div>
+
+                <label>Topik yang Diminati</label>
+
+                <div class="option-group">
+                    <input type="checkbox"
+                           id="html"
+                           name="topik"
+                           value="HTML"
+                           checked>
+                    <label for="html">HTML</label>
+
+                    <input type="checkbox"
+                           id="css"
+                           name="topik"
+                           value="CSS">
+                    <label for="css">CSS</label>
+                </div>
+
+                <label for="prodi">Program Studi</label>
+
+                <select id="prodi" name="prodi">
+                    <option value="Sistem Informasi" selected>
+                        Sistem Informasi
+                    </option>
+
+                    <option value="Teknik Informatika">
+                        Teknik Informatika
+                    </option>
+                </select>
+
+                <label for="pesan">Pesan</label>
+
+                <textarea id="pesan"
+                          name="pesan"
+                          rows="4">Saya ingin belajar HTML lebih baik dan memahami cara membuat website sederhana.</textarea>
+
+                <div class="button-group">
+                    <button type="submit">Kirim</button>
+                    <button type="reset">Batal</button>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Nur Annisa Aulia [2622500035]</p>
+    </footer>
+
+</body>
+
+</html>
