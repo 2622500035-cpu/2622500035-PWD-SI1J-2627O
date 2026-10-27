@@ -1,135 +1,50 @@
-# Pertemuan 06 - PHP Dasar
+# Pertemuan 6 (P6) - PHP Dasar dan Pemrograman Sisi Peladen
 
-## Identitas Mahasiswa
-- Nama: Nur Annisa Aulia
-- NIM: 2622500035
-- Program Studi: Sistem Informasi
-- Mata Kuliah: Pemrograman Web Dasar
+Mata Kuliah: Pemrograman Web Dasar (IS205) | Semester Gasal 2026/2027
+Nama / NIM: Nur Annisa Aulia / 2622500035
 
-## 1. Tujuan Praktikum
+## Cara Menjalankan
+1. Buka Laragon, klik *Mulai Semua* (Start All), pastikan Apache dan MySQL berstatus "mulai".
+2. Proyek berada di document root: C:\laragon\www\2622500035-PWD-SI1J-2627O\
+3. Buka http://localhost/pwd/2627O/SI1J/Pertemuan-06/
 
-Melanjutkan website Profil Mahasiswa dari pertemuan 05 dengan menerapkan dasar-dasar pemrograman PHP.
+## Kondisi Awal (B.1 - B.4)
+- Berkas P5 yang disalin: index.html (diubah menjadi index.php), style.css, script.js, img/foto-profil.jpg
+- Lokasi proyek: C:\laragon\www\2622500035-PWD-SI1J-2627O\pertemuan-06
+- Layanan berjalan: Apache httpd-2.4.54 (port 80) dan MySQL 8.0.30 (port 3306), keduanya berstatus "mulai"
+- index.html diubah menjadi index.php: sudah (di folder pertemuan-06 hanya ada index.php, tidak ada index.html)
+- Alamat akses: http://localhost/pwd/2627O/SI1J/Pertemuan-06/
+- Hasil: halaman profil berhasil tampil melalui localhost.
 
-## 2. Perubahan dari Pertemuan 05
+## Log Pengujian per Tahap
 
-Pada pertemuan 06 dilakukan beberapa perubahan:
+| Tahap | Kode / perubahan | Hasil aktual | Commit |
+|---|---|---|---|
+| C.1-C.4 Tag PHP, komentar, echo/print, HTML statis vs PHP | potongan uji sementara | [ISI: dikerjakan atau tidak; tulis hasil yang benar-benar dilihat] | - |
+| D.1 Variabel | $nim = "2622500035", $namaMahasiswa = "Nur Annisa Aulia", $programStudi = "SI", $tahunAkademik = "2026/2027", $semester = 2, $ipk = 3.75, $statusAktif = true, $catatanTambahan = null | Halaman tampil tanpa galat PHP | [ISI] |
+| D.2 Konstanta | NAMA_MATA_KULIAH, PROFIL_GITHUB | Halaman tampil tanpa galat PHP | [ISI] |
+| D.4 Tampil variabel/konstanta | paragraf Selamat Datang | Tampil: "Halo, saya Nur Annisa Aulia. Saya sedang mempelajari mata kuliah Pemrograman Web Dasar pada tahun akademik 2026/2027." Tautan GitHub: [ISI SETELAH DIKLIK] | [ISI] |
+| E.1 Aritmetika | $sisaSemester = $batasSemester - $semester | Tampil "Sisa semester hingga batas: 6" | [ISI] |
+| E.2-E.3 Perbandingan & logika | $semesterValid, $statusSemester | Dengan semester 2: "Sesuai rentang". Uji semester 9: [ISI SETELAH DIUJI] | [ISI] |
+| F.1 if-elseif-else | $keteranganSemester | Semester 2: "Semester: 2 (Semester awal)". Uji 4 dan 7: [ISI SETELAH DIUJI] | [ISI] |
+| F.2 Ternary | $namaProdi, status aktif | Tampil "Program Studi: Sistem Informasi (SI)" dan "Status mahasiswa: Aktif". Uji TI/false: [ISI SETELAH DIUJI] | [ISI] |
+| F.3 switch | $fokusProgramStudi | Tampil "Fokus program studi: Sistem informasi dan proses bisnis". Uji TI dan MI: [ISI SETELAH DIUJI] | [ISI] |
+| G.1 for | 5 target belajar | Tampil 5 butir, dari "Target belajar ke-1: Memahami sintaks dasar PHP." sampai "ke-5: Belum dipetakan" | [ISI] |
+| G.2 while | Semester 1-3 | Tampil Semester 1, Semester 2, Semester 3 | [ISI] |
+| H.1 number_format | IPK | Tampil "IPK: 3,75" | [ISI] |
+| H.2 NULL | === null | Tampil "Catatan tambahan: Belum ada". Uji dengan teks: [ISI SETELAH DIUJI] | [ISI] |
+| H.3 date() | footer tahun dinamis | [ISI SETELAH DILIHAT DI FOOTER] | [ISI] |
+| H.4 <?= ?> | tautan GitHub, footer | [ISI SETELAH DIUJI] | [ISI] |
+| I. action formulir | action="index.php" | [ISI SETELAH DIPERIKSA] | [ISI] |
 
-1. Mengubah index.html menjadi index.php.
-2. Menambahkan variabel dan konstanta PHP.
-3. Menggunakan operator aritmetika, perbandingan, dan logika.
-4. Menerapkan percabangan if-elseif-else dan switch.
-5. Menggunakan perulangan for dan while.
-6. Menggunakan fungsi number_format() dan date().
-7. Mempertahankan CSS dan JavaScript dari P5.
+## Galat yang Ditemukan dan Perbaikannya
+1. *ERR_CONNECTION_REFUSED* di Chrome: Apache belum berjalan. Diperbaiki dengan klik "Mulai Semua" di Laragon; setelah itu halaman dapat dibuka.
+2. *Halaman masih tampil versi P5*: alamat memakai /pwd/ sehingga membuka salinan lama. Diperbaiki dengan memakai alamat http://localhost/pwd/2627O/SI1J/Pertemuan-06/.
+3. *Foto profil tidak tampil*: atribut src tertulis img/foto-profil.jpeg padahal berkas bernama foto-profil.jpg. Diperbaiki menjadi img/foto-profil.jpg; foto kemudian tampil.
 
-## 3. Penerapan PHP
+## Pengujian Hasil Akhir
+- Seluruh keluaran PHP, percabangan, dan perulangan diperiksa di localhost: [ISI: sudah / belum]
+- Hasil: [ISI SETELAH PENGUJIAN AKHIR]
 
-### A. Variabel dan Konstanta
-
-php
-$nim = "2622500035";
-$namaMahasiswa = "Nur Annisa Aulia";
-$programStudi = "SI";
-$semester = 2;
-$ipk = 3.75;
-$statusAktif = true;
-
-const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
-
-
-### B. Operator
-
-php
-$batasSemester = 8;
-$sisaSemester = $batasSemester - $semester;
-
-$semesterValid = $semester >= 1 && $semester <= $batasSemester;
-
-
-### C. Percabangan if-elseif-else
-
-php
-if ($semester < 3) {
-    $keteranganSemester = "Semester awal";
-} elseif ($semester <= 6) {
-    $keteranganSemester = "Semester menengah";
-} else {
-    $keteranganSemester = "Semester akhir";
-}
-
-
-### D. Percabangan switch
-
-php
-switch ($programStudi) {
-    case "SI":
-        $fokusProgramStudi = "Sistem informasi dan proses bisnis";
-        break;
-
-    case "TI":
-        $fokusProgramStudi = "Komputasi dan pengembangan perangkat lunak";
-        break;
-
-    default:
-        $fokusProgramStudi = "Belum ditentukan";
-}
-
-
-### E. Perulangan for
-
-php
-for ($i = 1; $i <= 5; $i++) {
-    echo "Target belajar ke-" . $i;
-}
-
-
-### F. Perulangan while
-
-php
-$nomorSemester = 1;
-
-while ($nomorSemester <= 3) {
-    echo "Semester " . $nomorSemester;
-    $nomorSemester++;
-}
-
-
-### G. Fungsi PHP
-
-php
-echo number_format($ipk, 2, ',', '.');
-
-echo date("Y");
-
-
-## 4. Struktur Folder
-
-text
-pertemuan-06/
-│
-├── image/
-│   └── Nur Annisa Aulia.jpeg
-├── index.php
-├── style.css
-├── script.js
-└── README.md
-
-
-## 5. Cara Menjalankan Program
-
-1. Buka aplikasi Laragon.
-2. Klik Start All untuk menjalankan Apache.
-3. Pastikan folder pertemuan-06 berada di direktori www.
-4. Jalankan index.php melalui localhost.
-5. Periksa hasil tampilan website pada browser.
-
-## 6. Hasil Pengujian
-
-- Apache Laragon berhasil dijalankan.
-- File proyek sudah disalin ke folder Laragon.
-- Pengujian tampilan PHP melalui localhost belum selesai.
-- Pengujian menu dan formulir belum selesai.
-
-## 7. Kesimpulan
-
-Pada pertemuan 06, saya mempelajari penerapan dasar PHP pada website Profil Mahasiswa. PHP digunakan untuk menampilkan data mahasiswa, melakukan perhitungan, percabangan, dan perulangan. Website ini merupakan pengembangan dari tugas pertemuan 05.
+## Repositori GitHub
+URL: https://github.com/2622500035-cpu/2622500035-PWD-SI1J-2627O
