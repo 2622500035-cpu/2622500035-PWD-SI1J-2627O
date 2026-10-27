@@ -1,301 +1,194 @@
-<?php
-// P6: PHP dasar dan pemrograman sisi peladen
-
-// Bagian 1: Variabel dan konstanta
-$nim = "2622500035";
-$namaMahasiswa = "Nur Annisa Aulia";
-$programStudi = "SI";
-$tahunAkademik = "2026/2027";
-$semester = 1;
-$ipk = 3.75;
-$statusAktif = true;
-$catatanTambahan = null;
-
-const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
-
-// Bagian 2: Operator
-$batasSemester = 8;
-$sisaSemester = $batasSemester - $semester;
-$semesterValid = $semester >= 1 && $semester <= $batasSemester;
-$statusSemester = ($semesterValid && $statusAktif)
-    ? "Sesuai rentang"
-    : "Perlu diperiksa";
-
-// Bagian 3: Percabangan if-elseif-else
-if ($semester < 3) {
-    $keteranganSemester = "Semester awal";
-} elseif ($semester <= 6) {
-    $keteranganSemester = "Semester menengah";
-} else {
-    $keteranganSemester = "Semester akhir";
-}
-
-// Bagian 4: Nama program studi dengan operator ternary
-$namaProdi = ($programStudi == "SI")
-    ? "Sistem Informasi"
-    : (($programStudi == "TI") ? "Teknik Informatika" : "Lainnya");
-
-// Bagian 5: Percabangan switch-case-default
-switch ($programStudi) {
-    case "SI":
-        $fokusProgramStudi = "Sistem informasi dan proses bisnis";
-        break;
-    case "TI":
-        $fokusProgramStudi = "Komputasi dan pengembangan perangkat lunak";
-        break;
-    default:
-        $fokusProgramStudi = "Belum ditentukan";
-}
-
-// Status mahasiswa dengan operator ternary
-$teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
-?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Mahasiswa</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-  <body>
-    <header>
-      <div class="header-top">
-        <h1>Profil Mahasiswa</h1>
+<body>
 
-        <button
-          class="nav-toggle"
-          id="navToggle"
-          type="button"
-          aria-label="Buka navigasi"
-          aria-controls="navMenu"
-          aria-expanded="false">
-          &#9776;
-        </button>
-      </div>
+<header class="header">
+    <h1>Profil Mahasiswa</h1>
 
-      <nav aria-label="Navigasi utama">
-        <ul id="navMenu">
-          <li><a href="#home">Beranda</a></li>
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#contact">Kontak</a></li>
+    <button type="button" id="navToggle"
+        aria-expanded="false" aria-controls="navMenu">
+        Menu
+    </button>
+
+    <nav id="navMenu">
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#kontak">Kontak</a></li>
         </ul>
-      </nav>
-    </header>
+    </nav>
+</header>
 
-    <main>
-      <section id="home">
+<main class="container">
+
+    <!-- BERANDA -->
+    <section id="beranda" class="home card">
+
         <h2>Selamat Datang</h2>
+
         <p>
-          Halo, saya <strong><?= $ Nur Annisa Aulia ?></strong>. Saya sedang
-          mempelajari mata kuliah
-          <strong><?= NAMA_MATA_KULIAH ?></strong>
-          pada tahun akademik <?= $tahunAkademik ?>.
+            Halo, saya Nur Annisa Aulia. Saya sedang mempelajari
+            Pemrograman Web Dasar.
         </p>
 
-        <img src="image/Nur Annisa Aulia.jpg"
-     alt="Foto Profil Nur Annisa Aulia"
-     width="175"> />
-      </section>
+        <img src="image/Nur Annisa Aulia.jpeg"
+             alt="Foto profil Nur Annisa Aulia"
+             width="175">
 
-      <section id="about">
+        <p>
+            Saya adalah seorang mahasiswa yang sedang belajar
+            pemrograman web.
+        </p>
+
+    </section>
+
+    <!-- TENTANG -->
+    <section id="tentang" class="about card">
+
         <h2>Tentang Saya</h2>
 
         <article>
-          <h3>Profil Singkat</h3>
-          <p>Sisa semester hingga batas: <?= $sisaSemester ?></p>
-          <p>Pemeriksaan rentang semester: <?= $statusSemester ?></p>
-          <p>Semester: <?= $semester ?> (<?= $keteranganSemester ?>)</p>
-          <p>Program Studi: <?= $namaProdi ?> (<?= $programStudi ?>)</p>
-          <p>Status mahasiswa: <?= $teksStatus ?></p>
-          <p>Fokus program studi: <?= $fokusProgramStudi ?></p>
-          <p>IPK: <?= number_format($ipk, 2, ',', '.') ?></p>
-          <p>
-            Catatan tambahan:
-            <?= $catatanTambahan === null ? "Belum ada" : $catatanTambahan ?>
-          </p>
+            <h3>Profil Singkat</h3>
 
-          <h3>Nama</h3>
-          <p><?= $namaMahasiswa ?></p>
+            <p>
+                Perkenalkan, nama saya Nur Annisa Aulia.
+                Saya adalah seorang mahasiswa Program Studi
+                Sistem Informasi yang sedang mempelajari berbagai
+                hal mengenai teknologi dan pemrograman.
+                Saya tertarik untuk mempelajari bagaimana sebuah
+                website dibuat dan bagaimana kode dapat digunakan
+                untuk menghasilkan halaman web yang menarik
+                dan bermanfaat.
+            </p>
 
-          <h3>NIM</h3>
-          <p><?= $nim ?></p>
-
-          <h3>Jurusan</h3>
-          <p><?= $namaProdi ?></p>
-
-          <h3>Target Belajar (Perulangan for)</h3>
-          <ol>
-            <?php
-            // Perulangan for tanpa array; materi larik dibahas pada P9.
-            for ($i = 1; $i <= 5; $i++) {
-                echo "<li>Target belajar ke-" . $i . ": ";
-
-                switch ($i) {
-                    case 1:
-                        echo "Memahami sintaks dasar PHP.";
-                        break;
-                    case 2:
-                        echo "Menggunakan variabel dan konstanta.";
-                        break;
-                    case 3:
-                        echo "Menerapkan operator dan percabangan.";
-                        break;
-                    case 4:
-                        echo "Menggunakan perulangan for dan while.";
-                        break;
-                    default:
-                        echo "Belum dipetakan";
-                        break;
-                }
-
-                echo "</li>";
-            }
-            ?>
-          </ol>
-
-          <h3>Semester (Perulangan while)</h3>
-          <ol>
-            <?php
-            $nomorSemester = 1;
-            while ($nomorSemester <= 3) {
-                echo "<li>Semester " . $nomorSemester . "</li>";
-                $nomorSemester++;
-            }
-            ?>
-          </ol>
+            <p>
+                Saat ini saya sedang belajar Pemrograman Web Dasar,
+                khususnya HTML, CSS, dan JavaScript.
+                Saya ingin memahami cara membuat struktur halaman
+                web yang baik serta mengembangkan kemampuan
+                membuat website sederhana.
+            </p>
         </article>
-      </section>
 
-      <section id="contact">
+        <article>
+            <h3>Target Belajar</h3>
+
+            <ol>
+                <li>Menguasai HTML dan CSS.</li>
+                <li>Membuat website sederhana.</li>
+                <li>Memahami dasar-dasar pemrograman web.</li>
+            </ol>
+        </article>
+
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="contact card">
+
         <h2>Kontak</h2>
 
         <p>
-          Kunjungi
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-          href="https://github.com/2622500051-a11y">profil GitHub saya</a>.
+            Kunjungi
+            <a href="https://github.com/2622500035-cpu"
+               target="_blank" rel="noopener noreferrer">
+                profil GitHub saya
+            </a>
         </p>
 
-        <form id="contactForm" action="index.php" method="get" novalidate>
-          <div class="form-group">
+        <h3>Formulir Kontak</h3>
+
+        <form id="contactForm" novalidate>
+
             <label for="nama">Nama Lengkap</label>
-            <input
-              class="input-form"
-              type="text"
-              id="nama"
-              name="nama"
-              placeholder="Masukkan nama lengkap"
-              minlength="3"
-              maxlength="50"
-              required />
-          </div>
+            <input type="text" id="nama" name="nama" required>
 
-          <div class="form-group">
             <label for="email">Email</label>
-            <input
-              class="input-form"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="nama@email.com"
-              required />
-          </div>
+            <input type="email" id="email" name="email" required>
 
-          <div class="form-group">
             <label for="semester">Semester</label>
-            <input
-              class="input-form"
-              type="number"
-              id="semester"
-              name="semester"
-              min="1"
-              max="14"
-              required />
-          </div>
+            <input type="number" id="semester"
+                   name="semester" min="1" max="14" required>
 
-          <div class="form-group">
             <label for="tanggal">Tanggal Kunjungan</label>
-            <input
-              class="input-form"
-              type="date"
-              id="tanggal"
-              name="tanggal"
-              required />
-          </div>
+            <input type="date" id="tanggal"
+                   name="tanggal" required>
 
-          <fieldset class="form-group">
-            <legend>Jenis Pesan</legend>
+            <p>Jenis Pesan</p>
 
-            <input
-              type="radio"
-              id="pertanyaan"
-              name="jenis_pesan"
-              value="pertanyaan"
-              required />
-            <label for="pertanyaan">Pertanyaan</label>
+            <div class="option-group">
+                <input type="radio" id="pertanyaan"
+                       name="jenis" value="Pertanyaan" required>
+                <label for="pertanyaan">Pertanyaan</label>
 
-            <input
-              type="radio"
-              id="saran"
-              name="jenis_pesan"
-              value="saran" />
-            <label for="saran">Saran</label>
-          </fieldset>
+                <input type="radio" id="saran"
+                       name="jenis" value="Saran">
+                <label for="saran">Saran</label>
+            </div>
 
-          <fieldset class="form-group">
-            <legend>Topik yang Diminati</legend>
+            <p>Topik yang Diminati</p>
 
-            <input
-              type="checkbox"
-              id="minat-html"
-              name="minat"
-              value="HTML" />
-            <label for="minat-html">HTML</label>
+            <div class="option-group">
+                <input type="checkbox" id="html"
+                       name="topik" value="HTML">
+                <label for="html">HTML</label>
 
-            <input
-              type="checkbox"
-              id="minat-css"
-              name="minat"
-              value="CSS" />
-            <label for="minat-css">CSS</label>
-          </fieldset>
+                <input type="checkbox" id="css"
+                       name="topik" value="CSS">
+                <label for="css">CSS</label>
 
-          <div class="form-group">
+                <input type="checkbox" id="javascript"
+                       name="topik" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+            </div>
+
             <label for="prodi">Program Studi</label>
-            <select class="input-form" id="prodi" name="prodi" required>
-              <option value="">-- Pilih Program Studi --</option>
-              <option value="SI">Sistem Informasi</option>
-              <option value="TI">Teknik Informatika</option>
+
+            <select id="prodi" name="prodi" required>
+                <option value="">Pilih program studi</option>
+                <option value="Sistem Informasi">
+                    Sistem Informasi
+                </option>
+                <option value="Teknik Informatika">
+                    Teknik Informatika
+                </option>
+                <option value="Bisnis Digital">
+                    Bisnis Digital
+                </option>
             </select>
-          </div>
 
-          <div class="form-group">
             <label for="pesan">Pesan</label>
-            <textarea
-              class="input-form"
-              id="pesan"
-              name="pesan"
-              maxlength="300"
-              placeholder="Tulis pesan Anda"
-              required></textarea>
-          </div>
 
-          <p id="formFeedback" aria-live="polite"></p>
+            <textarea id="pesan" name="pesan"
+                      rows="4" required></textarea>
 
-          <button type="submit">Kirim</button>
-          <button type="reset">Batal</button>
+            <div class="button-group">
+                <button type="submit">Kirim</button>
+                <button type="reset">Batal</button>
+            </div>
+
+            <p id="formFeedback"
+               role="status"
+               aria-live="polite"></p>
+
         </form>
-      </section>
-    </main>
 
-    <footer>
-      <p>&copy; <?= date("Y") ?> <?= $namaMahasiswa ?> [<?= $nim ?>]</p>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+</main>
+
+<footer>
+    <p>© 2026 Nur Annisa Aulia [2622500035]</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
 </html>
