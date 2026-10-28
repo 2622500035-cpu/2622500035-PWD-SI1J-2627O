@@ -1,249 +1,254 @@
+/* =========================
+   DASAR / BOX MODEL
+   ========================= */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  padding: 12px;
+  padding: 0;
   font-family: Arial, sans-serif;
-  color: #111827;
-  background-color: #eef2f7;
+  background-color: #f2f2f2;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Header */
+/* =========================
+   HEADER & NAVIGASI
+   (memakai selector tag, jadi cocok dengan <header> biasa
+   maupun <header class="header">)
+   ========================= */
 header {
-  background-color: #003366;
-  color: #ffffff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #00264d;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 28px;
+  background-color: #073b6b;
+  color: #fff;
+  padding: 16px 20px;
+  margin: 0 auto 20px;
+  max-width: 1200px;
+  border: 4px solid #d9e0e6;
 }
 
 .header-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-#navMenu {
-  display: none;
-}
-
-#navMenu.nav-open {
-  display: flex;
-  flex-direction: column;
-  margin-top: 16px;
-}
-
-.nav-toggle {
-  display: block;
-  border: none;
-  background: transparent;
-  color: #ffffff;
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-/* Navigasi */
-nav ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
   gap: 12px;
+}
+
+header h1 {
   margin: 0;
-  padding: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+nav ul {
   list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 nav a {
-  color: #ffffff;
-  font-weight: bold;
+  color: #fff;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
-/* Layout utama */
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+/* Tombol hamburger: tersembunyi di layar lebar */
+.nav-toggle {
+  display: none;
+  background: #052a4d;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* =========================
+   KONTEN UTAMA
+   ========================= */
 main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 section {
-  width: 100%;
+  background: #fff;
+  border: 1px solid #dde3ea;
+  border-radius: 6px;
+  padding: 16px 20px;
 }
 
-/* Bagian Home */
-#home {
-  background-color: #ffffff;
-  border: 1px solid #d0d7de;
-  padding: 20px;
-  margin: 0;
+#contact {
+  grid-column: 1 / -1;
 }
 
-#home h2 {
-  color: #003366;
-  border-bottom: 2px solid #003366;
-  padding-bottom: 6px;
+h2 {
   margin-top: 0;
-  margin-bottom: 16px;
+  color: #073b6b;
+  font-size: 1.15rem;
+  border-bottom: 2px solid #073b6b;
+  padding-bottom: 6px;
 }
 
-#home p {
-  line-height: 1.6;
-  margin: 0 0 16px;
+h3 {
+  color: #073b6b;
+  font-size: 1rem;
+  margin: 16px 0 6px;
+}
+
+article p {
+  margin: 0;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eef1f4;
+}
+
+article ol {
+  margin: 0;
+  padding: 8px 8px 8px 30px;
+  font-size: 0.85rem;
+  border: 1px solid #e3e8ee;
+  border-radius: 4px;
+  background: #fafbfc;
 }
 
 #home img {
   display: block;
-  width: 240px;
   max-width: 100%;
   height: auto;
-  border: 1px solid #cbd5e1;
+  margin-top: 12px;
 }
 
-/* Bagian Tentang */
-#about {
-  background-color: #ffffff;
-  border: 1px solid #d0d7de;
-  padding: 20px;
-  margin: 0;
+a {
+  color: #0645ad;
 }
 
-#about h2 {
-  color: #003366;
-  border-bottom: 2px solid #003366;
-  padding-bottom: 6px;
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-#about h3 {
-  color: #1f4e78;
-  margin-bottom: 6px;
-}
-
-#about p {
-  margin: 6px 0;
-  padding: 6px 0;
-  border-bottom: 1px solid #e6e6e6;
-  line-height: 1.5;
-}
-
-#about ol {
-  color: #333333;
-  margin: 8px 0;
-  padding: 8px 24px;
-  border: 1px solid #e6e6e6;
-}
-
-/* Bagian Kontak */
-#contact {
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
-  padding: 20px;
-  margin: 0;
-}
-
-#contact h2 {
-  color: #003366;
-  border-bottom: 2px solid #003366;
-  padding-bottom: 6px;
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
+/* =========================
+   FORMULIR
+   ========================= */
 .form-group {
-  margin: 12px 0;
+  margin-bottom: 14px;
 }
 
-#contact label {
-  color: #1f2937;
+.form-group label {
+  display: block;
   font-weight: bold;
+  margin-bottom: 4px;
+}
+
+fieldset.form-group {
+  border: 1px solid #cfd6de;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+fieldset.form-group label {
+  display: inline;
+  font-weight: normal;
+  margin-right: 12px;
 }
 
 .input-form {
   width: 100%;
-  max-width: 100%;
-  background-color: #ffffff;
-  color: #111827;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  padding: 8px;
-  margin: 4px 0;
-  border: 1px solid #94a3b8;
+  padding: 8px 10px;
+  border: 1px solid #b8c2cc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
 }
 
-#contact textarea {
-  min-height: 80px;
+.input-form:focus {
+  outline: 2px solid #073b6b;
+  outline-offset: 1px;
+}
+
+textarea.input-form {
+  min-height: 90px;
   resize: vertical;
 }
 
-#contact button {
-  background-color: #003366;
-  color: #ffffff;
+#formFeedback {
+  min-height: 1.4em;
   font-weight: bold;
-  padding: 8px 14px;
-  margin: 8px 6px 0 0;
-  border: 1px solid #003366;
+}
+
+#formFeedback.error {
+  color: #b00020;
+}
+
+#formFeedback.success {
+  color: #1b6e2d;
+}
+
+form button {
+  background: #073b6b;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
-/* Footer */
+form button[type="reset"] {
+  background: #6b7785;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
 footer {
-  background-color: #003366;
-  color: #ffffff;
+  background-color: #073b6b;
+  color: #fff;
   text-align: center;
-  padding: 14px 20px;
-  margin-top: 20px;
-  border: 1px solid #00264d;
+  padding: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 footer p {
   margin: 0;
+  font-size: 0.85rem;
 }
 
-.form-feedback-error {
-  color: #c62828;
-}
-
-.form-feedback-success {
-  color: #2e7d32;
-}
-
-/* Layout untuk viewport yang lebih lebar */
-@media (min-width: 768px) {
-  nav {
-    margin-top: 16px;
-  }
-
-  nav ul {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 16px;
-  }
-
+/* =========================
+   RESPONSIF
+   ========================= */
+@media (max-width: 768px) {
   main {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #contact {
-    grid-column: 1 / -1;
-  }
-
-  #navMenu {
-    display: flex;
-    flex-direction: row;
+    grid-template-columns: 1fr;
   }
 
   .nav-toggle {
+    display: block;
+  }
+
+  nav ul {
     display: none;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav ul.open {
+    display: flex;
   }
 }
