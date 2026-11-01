@@ -1,13 +1,80 @@
 <?php
-// P7: penggunaan GET
-if (isset($_GET['nama'])) {
-  $nama = $_GET['nama'];
-  echo "Nama yang diterima: " . htmlspecialchars($nama, ENT_QUOTES, 'UTF-8');
+session_start();
+// P7: penggunaan POST
+$nama = trim((string) ($_POST['nama'] ?? ''));
+$email = trim((string) ($_POST['email'] ?? ''));
+$semesterForm = trim((string) ($_POST['semester'] ?? ''));
+$jenisPesan = trim((string) ($_POST['jenis_pesan'] ?? ''));
+$prodi = trim((string) ($_POST['prodi'] ?? ''));
+$pesan = trim((string) ($_POST['pesan'] ?? ''));
+$tanggal = trim((string) ($_POST['tanggal'] ?? ''));
+$minat = $_POST['minat'] ?? [];
+
+$pesanKesalahan = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($nama === '') {
+    $pesanKesalahan .= 'Nama lengkap wajib diisi. ';
+  }
+  if ($email === '') {
+    $pesanKesalahan .= 'Email wajib diisi. ';
+  }
+  if ($semesterForm === '') {
+    $pesanKesalahan .= 'Semester wajib diisi. ';
+  }
+  if ($tanggal === '') {
+    $pesanKesalahan .= 'Tanggal kunjungan wajib diisi. ';
+  }
+  if ($jenisPesan === '') {
+    $pesanKesalahan .= 'Jenis pesan wajib dipilih. ';
+  }
+  if ($prodi === '') {
+    $pesanKesalahan .= 'Program studi wajib dipilih. ';
+  }
+  if ($pesan === '') {
+    $pesanKesalahan .= 'Pesan wajib diisi. ';
+  }
+  if (empty($minat)) {
+    $pesanKesalahan .= 'Minat wajib dipilih minimal satu. ';
+  }
+
+  if ($semesterForm !== '') {
+    $semesterValid = filter_var($semesterForm, FILTER_VALIDATE_INT);
+    if ($semesterValid === false || $semesterValid < 1 || $semesterValid > 14) {
+      $pesanKesalahan .= 'Semester harus berupa bilangan bulat antara 1 dan 14. ';
+    }
+  }
+
+  if ($email !== '') {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+      $pesanKesalahan .= 'Format email tidak valid. ';
+    }
+  }
+
+  if (!in_array($jenisPesan, ['pertanyaan', 'saran'], true)) {
+    $pesanKesalahan .= 'Jenis pesan tidak valid. ';
+  }
+  if (!in_array($prodi, ['SI', 'TI'], true)) {
+    $pesanKesalahan .= 'Program studi tidak valid. ';
+  }
+
+  $minatDiizinkan = ['HTML', 'CSS'];
+  if (!is_array($minat)) {
+    $pesanKesalahan .= 'Format pilihan topik tidak valid. ';
+  } else {
+    foreach ($minat as $topik) {
+      if (!in_array($topik, $minatDiizinkan, true)) {
+        $pesanKesalahan .= 'Pilihan topik tidak valid. ';
+        break;
+      }
+    }
+  }
 }
+
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
 $nim = "2622500051";
-$namaMahasiswa = "Nur Annisa Aulia";
+$namaMahasiswa = "Serin Ariestia Rafka";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
 $semester = 2;
@@ -53,8 +120,35 @@ switch ($programStudi) {
 
 // Status mahasiswa dengan operator ternary
 $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
-?>
 
+// P7
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $_SESSION['pesanKesalahan'] = $pesanKesalahan;
+
+  $_SESSION['nama'] = $nama;
+  $_SESSION['email'] = $email;
+  $_SESSION['semester'] = $semesterForm;
+  $_SESSION['tanggal'] = $tanggal;
+  $_SESSION['jenis_pesan'] = $jenisPesan;
+  $_SESSION['prodi'] = $prodi;
+  $_SESSION['minat'] = $minat;
+  $_SESSION['pesan'] = $pesan;
+
+  header('Location: index.php');
+  exit;
+}
+
+$pesanKesalahan = $_SESSION['pesanKesalahan'] ?? '';
+
+$nama = $_SESSION['nama'] ?? '';
+$email = $_SESSION['email'] ?? '';
+$semesterForm = $_SESSION['semester'] ?? '';
+$tanggal = $_SESSION['tanggal'] ?? date("Y-m-d");
+$jenisPesan = $_SESSION['jenis_pesan'] ?? '';
+$prodi = $_SESSION['prodi'] ?? '';
+$minat = $_SESSION['minat'] ?? '';
+$pesan = $_SESSION['pesan'] ?? '';
+?>
 <!doctype html>
 <html lang="id">
   <head>
@@ -100,7 +194,7 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
         </p>
 
         <img
-          src="img/foto-profil.jpg"
+          rc="img/foto-profil.jpg"
           alt="Foto profil Nur Annisa Aulia"
           width="150" />
       </section>
@@ -177,15 +271,21 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
       <section id="contact">
         <h2>Kontak</h2>
 
-        <p>
-          Kunjungi
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-          href="https://github.com/2622500035-cpu/2622500035-PWD-SI1J-2627O">profil GitHub saya</a>.
-        </p>
+<?php if ($pesanKesalahan !== ''): ?>
+  <p class="form-feedback-error">
+    <?= htmlspecialchars($pesanKesalahan, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+  <?php unset($_SESSION['pesanKesalahan']); ?>
+<?php endif; ?>
+<p>
+  Kunjungi
+  <a
+    target="_blank"
+    rel="noopener noreferrer"
+    href="https://github.com/2622500035-cpu/2622500035-PWD-SI1J-2627O">profil GitHub saya</a>.
+</p>
 
-        <form id="contactForm" action="indexGet.php" method="get" novalidate>
+        <form id="contactForm" action="index.php" method="post" novalidate>
           <div class="form-group">
             <label for="nama">Nama Lengkap</label>
             <input
@@ -257,14 +357,14 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
             <input
               type="checkbox"
               id="minat-html"
-              name="minat"
+            name="minat[]"
               value="HTML" />
             <label for="minat-html">HTML</label>
 
             <input
               type="checkbox"
               id="minat-css"
-              name="minat"
+              name="minat[]"
               value="CSS" />
             <label for="minat-css">CSS</label>
           </fieldset>
@@ -294,6 +394,51 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
           <button type="submit">Kirim</button>
           <button type="reset">Batal</button>
         </form>
+        <?php if (!empty($nama)): ?>
+  <h3>Data yang Diterima Peladen</h3>
+
+  <p>Nama:
+    <?= htmlspecialchars($nama, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+
+  <p>Email:
+    <?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+
+  <p>Semester:
+    <?= htmlspecialchars($semesterForm, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+
+  <p>Tanggal kunjungan:
+    <?= htmlspecialchars($tanggal, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+
+  <p>Jenis pesan:
+    <?= htmlspecialchars($jenisPesan, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+
+  <p>Program studi:
+    <?= htmlspecialchars($prodi, ENT_QUOTES, 'UTF-8') ?>
+  </p>
+
+  <p>Minat:</p>
+
+  <?php if (is_array($minat) && count($minat) > 0): ?>
+    <ul>
+      <?php foreach ($minat as $topik): ?>
+        <li>
+          <?= htmlspecialchars((string) $topik, ENT_QUOTES, 'UTF-8') ?>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php else: ?>
+    <p>Tidak ada minat yang dipilih.</p>
+  <?php endif; ?>
+
+  <p>Pesan:</p>
+
+  <p><?= nl2br(htmlspecialchars($pesan, ENT_QUOTES, 'UTF-8')) ?></p>
+<?php endif; ?>
       </section>
     </main>
 
