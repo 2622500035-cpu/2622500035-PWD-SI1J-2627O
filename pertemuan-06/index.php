@@ -56,7 +56,7 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil Mahasiswa</title>
+    <title>TES ABC</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -95,10 +95,10 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
           pada tahun akademik <?= $tahunAkademik ?>.
         </p>
 
-   <img
-  src="image/foto-profil.jpg"
-  alt="Foto profil <?= $namaMahasiswa ?>"
-  width="150" /> 
+        <img
+          src="img/foto-profil.jpg"
+          alt="Foto profil Nur Annisa Aulia"
+          width="150" />
       </section>
 
       <section id="about">
@@ -178,7 +178,7 @@ $teksStatus = $statusAktif ? "Aktif" : "Tidak aktif";
           <a
             target="_blank"
             rel="noopener noreferrer"
-          href="https://github.com/2622500035-cpu/2622500035-PWD-SI1J-2627O">profil GitHub saya</a>.
+            href="https://github.com/2622500035-cpu">profil GitHub saya</a>.
         </p>
 
         <form id="contactForm" action="index.php" method="get" novalidate>
