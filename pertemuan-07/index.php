@@ -194,8 +194,8 @@ $pesan = $_SESSION['pesan'] ?? '';
         </p>
 
         <img
-          rc="img/foto-profil.jpg"
-          alt="Foto profil Nur Annisa Aulia"
+          src="img/foto-profil.jpg"
+          alt="Foto profil Serin Ariestia"
           width="150" />
       </section>
 

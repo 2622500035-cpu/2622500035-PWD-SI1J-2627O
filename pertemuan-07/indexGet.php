@@ -6,7 +6,7 @@ if (isset($_GET['nama'])) {
 }
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
-$nim = "2622500051";
+$nim = "2622500035";
 $namaMahasiswa = "Nur Annisa Aulia";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
