@@ -73,8 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
-$nim = "2622500051";
-$namaMahasiswa = "Serin Ariestia Rafka";
+$nim = "2622500035";
+$namaMahasiswa = "Nur Annisa Aulia";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
 $semester = 2;
