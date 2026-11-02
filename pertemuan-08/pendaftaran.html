@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran | Nasgor Pete Annisa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Logo Nasgor Pete Annisa">
+        <circle cx="32" cy="32" r="31" fill="#2f6b43"/>
+        <path class="uap" d="M24 24c-3-4 3-6 0-11M32 24c-3-4 3-6 0-11M40 24c-3-4 3-6 0-11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M12 35h40c0 11-9 18-20 18S12 46 12 35z" fill="#f2b84b"/>
+        <ellipse cx="32" cy="35" rx="20" ry="4" fill="#c8872a"/>
+        <circle cx="25" cy="34" r="2.2" fill="#5aa469"/>
+        <circle cx="33" cy="35.5" r="2.2" fill="#5aa469"/>
+        <circle cx="40" cy="34" r="2.2" fill="#d62f1f"/>
+      </svg>
+      <div>
+        <h1>Nasgor Pete Annisa</h1>
+        <p>Berbagi cerita dan resep nasi goreng pete sambal terasi</p>
+      </div>
+    </header>
+    <div class="tengah">
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="pendaftaran.html" class="aktif">Pendaftaran</a></li>
+        </ul>
+      </nav>
+      <main>
+        <h2>Pendaftaran Komunitas Pecinta Nasgor Pete</h2>
+        <p>Isi formulir ini untuk bergabung dan berbagi resep nasi goreng favoritmu.</p>
+        <form id="formDaftar" novalidate>
+          <div class="baris">
+            <label for="nama">Nama lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Contoh: Siti Aminah">
+            <div class="galat" id="galat-nama"></div>
+          </div>
+          <div class="baris">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com">
+            <div class="galat" id="galat-email"></div>
+          </div>
+          <div class="baris">
+            <label for="hp">Nomor HP</label>
+            <input type="tel" id="hp" name="hp" placeholder="08123456789">
+            <div class="galat" id="galat-hp"></div>
+          </div>
+          <fieldset class="baris pilihan">
+            <legend>Jenis kelamin</legend>
+            <label><input type="radio" name="jk" value="Laki-laki"> Laki-laki</label>
+            <label><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+            <div class="galat" id="galat-jk"></div>
+          </fieldset>
+          <div class="baris">
+            <label for="pedas">Tingkat kepedasan</label>
+            <select id="pedas" name="pedas">
+              <option value="">-- Pilih tingkat pedas --</option>
+              <option>Tidak pedas</option>
+              <option>Sedang</option>
+              <option>Pedas</option>
+              <option>Super pedas</option>
+            </select>
+            <div class="galat" id="galat-pedas"></div>
+          </div>
+          <fieldset class="baris pilihan">
+            <legend>Topping favorit</legend>
+            <label><input type="checkbox" name="topping" value="Telur ceplok"> Telur ceplok</label>
+            <label><input type="checkbox" name="topping" value="Kerupuk"> Kerupuk</label>
+            <label><input type="checkbox" name="topping" value="Ayam suwir"> Ayam suwir</label>
+            <label><input type="checkbox" name="topping" value="Acar"> Acar</label>
+          </fieldset>
+          <div class="baris">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" rows="3" placeholder="Ceritakan pengalamanmu makan nasi goreng pete"></textarea>
+          </div>
+          <button type="submit">Daftar</button>
+          <button type="reset" id="btnReset">Reset</button>
+        </form>
+        <div id="hasil" hidden></div>
+      </main>
+    </div>
+    <footer>&copy;2622500035_Nur Annisa Aulia_SI1J_ UTS Pemrograman Web Dasar</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
