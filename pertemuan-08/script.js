@@ -14,6 +14,8 @@ form.addEventListener("submit", function (e) {
   const hp = form.hp.value.trim();
   const jk = form.jk.value;
   const pedas = form.pedas.value;
+  const pesan = form.pesan.value.trim();
+  console.log("pesan:", pesan);
 
   const cek = [
     galat("nama", nama.length < 3 ? "Nama minimal 3 huruf." : ""),
@@ -31,7 +33,9 @@ form.addEventListener("submit", function (e) {
   hasil.querySelector("p").textContent = "Terima kasih, " + nama + "! Data kamu sudah kami catat.";
   const ul = hasil.querySelector("ul");
   [["Email", email], ["No. HP", hp], ["Jenis kelamin", jk],
-   ["Tingkat pedas", pedas], ["Topping", topping]].forEach(([k, v]) => {
+   ["Tingkat pedas", pedas], ["Topping", topping],
+   ["Pesan", pesan || "-"]
+  ].forEach(([k, v]) => {
     const li = document.createElement("li");
     li.textContent = k + ": " + v;
     ul.appendChild(li);
